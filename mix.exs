@@ -34,9 +34,9 @@ defmodule NervesSystemRpi3.Mixfile do
   def nerves_package do
     [
       type: :system,
-      # artifact_sites: [
-      #   {:github_releases, "nerves-project/#{@app}"}
-      # ],
+      artifact_sites: [
+        {:github_releases, "balexand/#{@app}"}
+      ],
       platform: Nerves.System.BR,
       platform_config: [
         defconfig: "nerves_defconfig"
