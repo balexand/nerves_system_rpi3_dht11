@@ -14,13 +14,29 @@ Add the following dependency to your `mix.exs` file for the `"rpi3"` target:
 
 Then install dependencies as usual.
 
-### Reading temperature
+Temperature and relative humidity can be measured by reading a device file. For example:
 
-TODO
+```elixir
+def temp_in_c do
+  dht_read("/sys/bus/iio/devices/iio:device0/in_temp_input")
+end
 
-### Reading humidity
+def relative_humidity_percent do
+  dht_read("/sys/bus/iio/devices/iio:device0/in_humidityrelative_input")
+end
 
-TODO
+defp dht_read(path) do
+  case File.read(path) do
+    {:ok, str} ->
+      value = (str |> String.trim |> String.to_integer) / 1000
+      {:ok, value}
+    {:error, _} ->
+      # This error happens often. If your app has a GenServer that polls the
+      # sensor then you'll want to poll the sensor again after a short delay.
+      :error
+  end
+end
+```
 
 ## This is a fork of `nerves_system_rpi3`
 
