@@ -57,7 +57,7 @@ defmodule NervesSystemRpi3.Mixfile do
 
   defp description do
     """
-    Nerves System - Raspberry Pi 3 B
+    Nerves System - Raspberry Pi 3 B with DHT11/DHT22 DT overlay
     """
   end
 
