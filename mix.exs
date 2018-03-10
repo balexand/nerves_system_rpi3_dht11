@@ -63,7 +63,7 @@ defmodule NervesSystemRpi3.Mixfile do
 
   defp package do
     [
-      maintainers: ["Frank Hunleth", "Justin Schneck"],
+      maintainers: ["Brian Alexander"],
       files: package_files(),
       licenses: ["Apache 2.0"],
       links: %{"Github" => "https://github.com/balexand/#{@app}"}
