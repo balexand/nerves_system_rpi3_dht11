@@ -1,44 +1,33 @@
-# Raspberry Pi 3 Model B
+# Raspberry Pi 3 Model B with DHT11/DHT22 Device Tree Overlay
 
-[![CircleCI](https://circleci.com/gh/nerves-project/nerves_system_rpi3.svg?style=svg)](https://circleci.com/gh/nerves-project/nerves_system_rpi3)
-[![Hex version](https://img.shields.io/hexpm/v/nerves_system_rpi3.svg "Hex version")](https://hex.pm/packages/nerves_system_rpi3)
+[![Hex version](https://img.shields.io/hexpm/v/nerves_system_rpi3_dht11.svg "Hex version")](https://hex.pm/packages/nerves_system_rpi3_dht11)
 
-This is the base Nerves System configuration for the Raspberry Pi 3 Model B.
+This is the base Nerves System configuration for the Raspberry Pi 3 Model B with support for the DHT11/DHT22 temperature and humidity sensor.
 
-![Fritzing Raspberry Pi 3 image](assets/images/raspberry-pi-3-model-b.png)
-<br><sup>[Image credit](#fritzing)</sup>
+## Usage
 
-| Feature              | Description                     |
-| -------------------- | ------------------------------- |
-| CPU                  | 1.2 GHz quad-core ARMv8         |
-| Memory               | 1 GB DRAM                       |
-| Storage              | MicroSD                         |
-| Linux kernel         | 4.4.50 w/ Raspberry Pi patches  |
-| IEx terminal         | HDMI and USB keyboard (can be changed to UART)   |
-| GPIO, I2C, SPI       | Yes - Elixir ALE                |
-| ADC                  | No                              |
-| PWM                  | Yes, but no Elixir support      |
-| UART                 | 1 available - ttyS0             |
-| Camera               | Yes - via rpi-userland          |
-| Ethernet             | Yes                             |
-| WiFi                 | Yes - Nerves.Network            |
-| Bluetooth            | Not supported yet               |
+Add the following dependency to your `mix.exs` file for the `"rpi3"` target:
 
-## Supported WiFi devices and firmware
+```elixir
+{:nerves_system_rpi3_dht11, ">= 0.0.0"}
+```
 
-WiFi modules almost always require proprietary firmware to be loaded for them to work. The
-Linux kernel handles this and firmware blobs are maintained in the
-`linux-firmware` project. The firmware for the built-in WiFi module on the RPi3
-hasn't made it to the `linux-firmware` project nor Buildroot, so it is included
-here in a `rootfs_overlay` overlay directory. The original firmware files came from [github:RPi-Distro/firmware-nonfree](https://github.com/RPi-Distro/firmware-nonfree/blob/master/brcm80211/brcm).
+Then install dependencies as usual.
 
-## Linux kernel and RPi firmware/userland
+### Reading temperature
 
-There's a subtle coupling between the `nerves_system_br` version and the Linux
-kernel version used here. `nerves_system_br` provides the versions of
-`rpi-userland` and `rpi-firmware` that get installed. I prefer to match them to
-the Linux kernel to avoid any issues. Unfortunately, none of these are tagged
-by the Raspberry Pi Foundation so I either attempt to match what's in Raspbian
-or take versions of the repositories that have similar commit times.
+TODO
 
-[Image credit](#fritzing): This image is from the [Fritzing](http://fritzing.org/home/) parts library.
+### Reading humidity
+
+TODO
+
+## This is a fork of `nerves_system_rpi3`
+
+See the [official `nerves_system_rpi3` README](https://github.com/nerves-project/nerves_system_rpi3) for more details. The version numbers of this project match those from the offical project.
+
+### What did I change?
+
+See these diffs to see how this project differs from the offical project:
+
+* [1.0.0-rc.0](https://github.com/balexand/nerves_system_rpi3_dht11/compare/b952d2bb0472c3ff1ea92223fd12509fcdb864a7...v1.0.0-rc.0)
