@@ -9,7 +9,7 @@ This is the base Nerves System configuration for the Raspberry Pi 3 Model B with
 Add the following dependency to your `mix.exs` file for the `"rpi3"` target:
 
 ```elixir
-{:nerves_system_rpi3_dht11, ">= 0.0.0"}
+{:nerves_system_rpi3_dht11, ">= 1.0.0-rc"}
 ```
 
 Then install dependencies as usual.
